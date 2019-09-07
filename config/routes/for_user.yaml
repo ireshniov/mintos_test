@@ -1,2 +1,6 @@
-fos_user:
-  resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+fos_user_security:
+  resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+fos_user_registration_register:
+  path: /register
+  controller: fos_user.registration.controller:registerAction

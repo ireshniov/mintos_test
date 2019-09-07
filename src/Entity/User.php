@@ -11,6 +11,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class User extends BaseUser
 {
+    const DEFAULT_USER_ROLES = [
+        'ROLE_USER'
+    ];
+
     /**
      * @ORM\Id
      * @ORM\Column(type="integer")
