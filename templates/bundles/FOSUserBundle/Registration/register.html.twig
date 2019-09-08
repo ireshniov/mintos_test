@@ -5,3 +5,27 @@
 {% block fos_user_content %}
     {% include "bundles/FOSUserBundle/Registration/register_content.html.twig" %}
 {% endblock fos_user_content %}
+
+{% block javascripts %}
+    <script type="text/javascript">
+        {% set ajaxCheckEmailError = include('bundles/FOSUserBundle/Registration/_ajax_check_email_error.html.twig') %}
+
+        $(document).ready(function() {
+            $('#fos_user_registration_form_email').on('blur', function (event) {
+                element = event.target;
+
+                $.post( "{{ url('ajax_check_email') }}", {email: $(element).val()}, function(data) {
+                    if (data.exists === true) {
+                        $('span.email-ajax-error.help-block').remove();
+
+                        $(element).parent('.form-group').addClass('has-error');
+                        $('{{ ajaxCheckEmailError|raw }}').insertAfter($(element));
+                    } else {
+                        $(element).parent('.form-group').removeClass('has-error');
+                        $('span.email-ajax-error.help-block').remove();
+                    }
+                });
+            });
+        });
+    </script
+{% endblock %}
