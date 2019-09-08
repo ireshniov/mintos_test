@@ -68,7 +68,7 @@ class AccessDeniedHandler implements AccessDeniedHandlerInterface
     {
         return in_array(
             $currentRoute,
-            ['fos_user_security_login', 'fos_user_resetting_request', 'fos_user_registration_register']
+            ['fos_user_security_login', 'fos_user_registration_register']
         );
     }
 }

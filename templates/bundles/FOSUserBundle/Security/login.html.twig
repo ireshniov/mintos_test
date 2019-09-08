@@ -1,8 +1,7 @@
 {% extends "bundles/FOSUserBundle/layout.html.twig" %}
 
-{% block header %} Please sign in {% endblock %}
-
 {% block fos_user_content %}
+    <h2>{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</h2>
     {{ include('bundles/FOSUserBundle/Security/login_content.html.twig') }}
 {% endblock fos_user_content %}
 
