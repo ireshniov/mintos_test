@@ -25,5 +25,6 @@ security:
             access_denied_handler: App\Security\AccessDeniedHandler
 
     access_control:
+        - { path: ^/$, roles: 'ROLE_USER'}
         - { path: ^/login$, allow_if: "not has_role('ROLE_USER')" }
         - { path: ^/register, allow_if: "not has_role('ROLE_USER')" }

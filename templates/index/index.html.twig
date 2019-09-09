@@ -1,5 +1,7 @@
 {% extends "base.html.twig" %}
 
-{% block title %} Index page {% endblock %}
+{% block title %} Feeds {% endblock %}
 
-{% block body %} This is the index page {% endblock %}
+{% block body %}
+    {{ include('index/_feed.html.twig', {'feed': feed}) }}
+{% endblock %}

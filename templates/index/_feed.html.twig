@@ -1,0 +1,9 @@
+<h2>News - <a href="{{ feed.link }}">{{ feed.title }}</a></h2>
+<p>{{ feed.description }}</p>
+<p>Last updated: {{ feed.lastModified|date }}</p>
+{% for item in feed.items %}
+    <h3><a href="{{ item.link }}">{{ item.title }}</a></h3>
+    <p>{{ item.description|raw }}<p>
+    <p class="left">{{ item.lastModified|date }}, {{ item.author.name }}</p>
+    <hr style="border-top:1px solid"/>
+{% endfor %}
