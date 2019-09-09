@@ -1,0 +1,17 @@
+<h2>Word frequency</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Word</th>
+            <th>Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for word, count in words %}
+            <tr>
+                <td>{{ word }}</td>
+                <td>{{ count }}</td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>

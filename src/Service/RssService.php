@@ -2,9 +2,7 @@
 
 namespace App\Service;
 
-use Exception;
 use FeedIo\Feed;
-use FeedIo\FeedInterface;
 use FeedIo\FeedIo;
 
 /**
@@ -34,7 +32,6 @@ class RssService
 
     /**
      * @return array
-     * @throws Exception
      */
     public function getFeeds(): array
     {
@@ -50,25 +47,14 @@ class RssService
     /**
      * @param string $resourceName
      * @return array
-     * @throws Exception
      */
     public function getFeed(string $resourceName): array
     {
-        //TODO add cache logic;
+        // TODO: cache logic;
 
-        $feed = $this->fetchFeed($resourceName)->toArray();
+        /** @var Feed $feed */
+        $feed = $this->feedIo->read($this->resourceMap[$resourceName])->getFeed();
 
-        return $feed;
-    }
-
-    /**
-     * @param string $resourceName
-     * @return FeedInterface|Feed
-     */
-    private function fetchFeed(string $resourceName): FeedInterface
-    {
-        $result = $this->feedIo->read($this->resourceMap[$resourceName]);
-
-        return $result->getFeed();
+        return $feed->toArray();
     }
 }

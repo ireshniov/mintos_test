@@ -3,5 +3,6 @@
 {% block title %} Feeds {% endblock %}
 
 {% block body %}
+    {{ include('index/_word_frequency.html.twig', {'words': words}) }}
     {{ include('index/_feed.html.twig', {'feed': feed}) }}
 {% endblock %}
