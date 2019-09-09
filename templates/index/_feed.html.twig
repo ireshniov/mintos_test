@@ -4,6 +4,6 @@
 {% for item in feed.items %}
     <h3><a href="{{ item.link }}">{{ item.title }}</a></h3>
     <p>{{ item.description|raw }}<p>
-    <p class="left">{{ item.lastModified|date }}, {{ item.author.name }}</p>
+    <p class="left">{{ item.lastModified|date }}, <a href="{{ item.author.uri }}">{{ item.author.name }}</a></p>
     <hr style="border-top:1px solid"/>
 {% endfor %}
