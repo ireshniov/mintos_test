@@ -1,4 +1,4 @@
-# beejee_test
+# Init project
 
 ```
 docker-compose up -d
